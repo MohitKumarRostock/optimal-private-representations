@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0",
+  "scope": "Source migration; original research files were not modified.",
+  "files": [
+    {
+      "original_path": "manuscript/step09_code/finite_private_task_learner.py",
+      "packaged_path": "src/optimal_private_representations/learner.py",
+      "original_sha256": "807e6148a148590c0b45b34e90cc55e65b2d8dc15a4874b176cc3e195c092611",
+      "packaged_sha256": "e32f55cc5ac0d52c257c36b565347ed773db021086f69a450bd3d496c93a0451",
+      "algorithm_ast_unchanged_ignoring_imports_and_docstrings": true
+    },
+    {
+      "original_path": "manuscript/step09_code/ordered_private_calibration.py",
+      "packaged_path": "src/optimal_private_representations/calibration.py",
+      "original_sha256": "91f7e8ce00fb5b3681941d3b800bc9ecd9f14525fdc686294fafb4dd5dfeabfc",
+      "packaged_sha256": "de96dd936ec25848265e80a9daef599088de6f6725725611b553c630c1e53470",
+      "algorithm_ast_unchanged_ignoring_imports_and_docstrings": true
+    },
+    {
+      "original_path": "manuscript/step05_code/finite_private_task_learner.py",
+      "packaged_path": "src/optimal_private_representations/legacy/learner.py",
+      "original_sha256": "6238d26656f16ebf38a2df468243163d7c4c4f657a69e7e25c4f966bb76ede53",
+      "packaged_sha256": "c34557e95fb8489c1d68206e5488bb28f4aec9da9c54e96c732a19bcab9b2043",
+      "algorithm_ast_unchanged_ignoring_imports_and_docstrings": true
+    },
+    {
+      "original_path": "manuscript/step05_code/ordered_private_calibration.py",
+      "packaged_path": "src/optimal_private_representations/legacy/calibration.py",
+      "original_sha256": "ac57ca2f5a596260e8e4f559269776ce3c630468f1b5fbd4e0b5f1617e381302",
+      "packaged_sha256": "5011d093b5ccf49c76dc57f6a77b106c3b740a589cc15cf3b3b008b6266d899f",
+      "algorithm_ast_unchanged_ignoring_imports_and_docstrings": true
+    },
+    {
+      "original_path": "manuscript/step07_code/experiment_models.py",
+      "packaged_path": "src/optimal_private_representations/experiments/models.py",
+      "original_sha256": "759e2e885017257a978a3d4abfc7269cbae3fa8d63f8bcb7caa52f159c65974e",
+      "packaged_sha256": "d3b5801ea4063c5ab68367f1bb2f61abe320b9816b8d8aab095946c0be45a144"
+    },
+    {
+      "original_path": "manuscript/step07_code/run_learning_experiments.py",
+      "packaged_path": "src/optimal_private_representations/experiments/learning.py",
+      "original_sha256": "a173008c00b3edc944d1a7d3feb4c8595b73739e0292ccff5da1996b93c2f9cc",
+      "packaged_sha256": "b47791eb5c53505688006be7195ec2be17ac3994032d5f0df572050ff978811f"
+    },
+    {
+      "original_path": "manuscript/step07_code/population_experiments.py",
+      "packaged_path": "src/optimal_private_representations/experiments/population.py",
+      "original_sha256": "0a061f8270f065be5b8b5f2af0e14bd8fe86f7af7c101a8b04e6388975252b27",
+      "packaged_sha256": "3345b43c70812e3fb78f33132aa2c5db07f797cd5e5bf67806353903a6f2bc3d"
+    },
+    {
+      "original_path": "manuscript/step07_code/output_count_experiment.py",
+      "packaged_path": "src/optimal_private_representations/experiments/output_count.py",
+      "original_sha256": "9ff3809c7faf113fc412d90dbf704b4f45c9c04e9d751cb0bb4cd7364fe11334",
+      "packaged_sha256": "23fd6adbe32372f61e6d1b232ec2328fe74fa475a523f31426c841bc673c2fb4"
+    },
+    {
+      "original_path": "manuscript/step07_code/decompose_near_tie.py",
+      "packaged_path": "src/optimal_private_representations/experiments/decomposition.py",
+      "original_sha256": "f65794acdea1208f9c6580519849ff69ece89bc7ed699956dc08eb2ff2aaea6c",
+      "packaged_sha256": "af048c9d6bfb58c1023ad276d09c22a8c25baa8a563e22197fdac2eef6d283cf"
+    },
+    {
+      "original_path": "manuscript/step07_code/run_benchmarks.py",
+      "packaged_path": "src/optimal_private_representations/experiments/benchmarks.py",
+      "original_sha256": "331406cc1f5b3290a946ffefdf046c21d406c8ecf403dfb44a8ae238e03e582b",
+      "packaged_sha256": "478881ca90d2146ac4ec784064bf5996c1e2936fea0716d12169d6a70d3374c7"
+    },
+    {
+      "original_path": "manuscript/step07_code/summarize_learning.py",
+      "packaged_path": "src/optimal_private_representations/experiments/summaries.py",
+      "original_sha256": "dbd4426c5e95e5eae4e58394dd9f56ce5bf9fd08db0016cc40d8ce53cfb05b6e",
+      "packaged_sha256": "45789dbbbb10884820d0758af3de5acf772d09079c31a79d91c7ffc6782d7da7"
+    },
+    {
+      "original_path": "manuscript/step07_code/plot_population_and_runtime.py",
+      "packaged_path": "src/optimal_private_representations/experiments/plot_population_runtime.py",
+      "original_sha256": "2a316ef3bef2a01ba92434fe97e692b7cdf817b7bebf81e83d6e806457558806",
+      "packaged_sha256": "813e2b6c65696f5c48926a0b7c5425858f0de0ffaf7bda38f247fc044b637891"
+    },
+    {
+      "original_path": "manuscript/step07_code/plot_decomposition.py",
+      "packaged_path": "src/optimal_private_representations/experiments/plot_decomposition.py",
+      "original_sha256": "d052c708b21620ef9e4e394822a33e9eb2debe8210c2fd20ba98c4a3613cbac4",
+      "packaged_sha256": "bb1b4916cbe725023d5dcd778b12118351b31df585038a6ce730b44164f6e7aa"
+    },
+    {
+      "original_path": "manuscript/step07_code/make_report_tables.py",
+      "packaged_path": "src/optimal_private_representations/experiments/tables.py",
+      "original_sha256": "4930def86a93f8af949ab3b21db81f1498d03f6d2660a0e12247dc92ce2f37d8",
+      "packaged_sha256": "0f9c046153108dcfa7834cc213af7993c19c2bf296afdf5f64277b1cca0e91be"
+    },
+    {
+      "original_path": "manuscript/step05_code/step05_checks.py",
+      "packaged_path": "src/optimal_private_representations/validation/finite.py",
+      "original_sha256": "4604e71063a64198843028e145de12ec11c460a2668a8a7d9d8df3362af9e6b3",
+      "packaged_sha256": "46a038039129195352fe7365bce57c797e7ac9f2c77b1cee0472cb3d927b8247"
+    },
+    {
+      "original_path": "manuscript/step07_code/baseline_spotchecks.py",
+      "packaged_path": "src/optimal_private_representations/validation/baselines.py",
+      "original_sha256": "797fbe32269b4288813c0d53b121df6bfe5d7230c4e3d2b89a8bdc0af67bba42",
+      "packaged_sha256": "2720382f7a8f2a1a90e539befa314d43c9396b8764d28f4226d7f52cda5baabd"
+    },
+    {
+      "original_path": "manuscript/step09_code/verify_output_cap.py",
+      "packaged_path": "src/optimal_private_representations/validation/output_cap.py",
+      "original_sha256": "d9871355157d87f48a7a4c91ac77d24c6a25b158e85431431383a8af28cbbca0",
+      "packaged_sha256": "0b140f9c7657a62eed07821855458b5b86c2d0bde7bc15eb7c2a89bbd2999f97"
+    },
+    {
+      "original_path": "manuscript/step11_manuscript/scripts/render_figures.py",
+      "packaged_path": "src/optimal_private_representations/experiments/publication.py",
+      "original_sha256": "55ddaee122e5050a6f6dd81d4c623b97faad981a785721520ca7874c4f75a6df",
+      "packaged_sha256": "7eab9b24e58dab223bd14a1a05e5e59cf1427a807388f170f60be9336ca85f65",
+      "presentation_only": true,
+      "changes": "Explicit data/figure arguments replace manuscript paths and temporary __file__/sys.argv reassignment; final label/line treatment retained."
+    }
+  ],
+  "packaging_changes": [
+    "Relative package imports replace sibling-directory and sys.path loading.",
+    "Generated outputs are separated from protected frozen references.",
+    "Recorded algorithms, configuration IDs, seed arithmetic, risk calculations, and uncapped timing provenance are preserved.",
+    "Package source hashes are explicitly mapped to the historical frozen protocol hashes.",
+    "CLI, finite reference verification, and targeted unittest checks are new integration code."
+  ],
+  "workflow_contract": {
+    "entrypoints": [
+      "opr",
+      "python -m optimal_private_representations"
+    ],
+    "commands": [
+      "smoke",
+      "validate",
+      "reproduce",
+      "simulate",
+      "summarize",
+      "population",
+      "decompose",
+      "benchmark"
+    ],
+    "public_api": "capped ordered optimizer and two-block learner",
+    "recorded_experiment_api": "explicit legacy uncapped optimizer and learner",
+    "frozen_inputs": "data/reference",
+    "generated_outputs": "selected --output-dir, default outputs/<command>",
+    "new_data_analysis": "summarize copies learning inputs into a separate output directory"
+  },
+  "integration_adjustments": [
+    "The local-alternative replay accepts at least two replicates, retaining the same complete 20-configuration family and all seed/risk identities; the frozen study has 256.",
+    "Benchmark repeat counts are required to be positive.",
+    "Generated source metadata refer to current package paths, with original frozen hashes mapped explicitly.",
+    "The output-count metadata hash uses the migrated population.py filename."
+  ]
+}

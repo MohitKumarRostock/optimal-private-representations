@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "analysis_status": "Post-run diagnostic decomposition of existing fits, added after inspection of the original learning curves; not preregistered and not new sampling.",
+  "configurations_replayed": 20,
+  "replicates_per_configuration": 256,
+  "methods": [
+    "attaining",
+    "direct_histogram",
+    "nonprivate_fit"
+  ],
+  "replayed_fits": 15360,
+  "summary_groups": 30,
+  "original_study_distinct_models": 76800,
+  "additional_independent_models": 0,
+  "maximum_errors": {
+    "replay_risk_error": 0.0,
+    "oracle_replay_error": 0.0,
+    "decomposition_identity_error": 6.245004513516506e-17,
+    "decoder_identity_error": 6.245004513516506e-17
+  },
+  "minimum_channel_excess": 0.0,
+  "minimum_decoder_error": 1.7653847828036362e-10,
+  "intervals": "Pointwise approximate 95% Monte Carlo intervals for equally weighted sign strata. Mean=(mean_-+mean_+)/2; SE=sqrt(s_-^2/R+s_+^2/R)/2; Welch-Satterthwaite degrees of freedom. No multiplicity correction. Indicator intervals use the same moment approximation; zero observed variance does not establish an exact zero population probability.",
+  "identity": "R(q,g)-V = R(q,g_P)-V + sum_z (p@q)[z]*(g[z]-g_P[z])^2",
+  "decoder": "g_P=((p*m)@q)/(p@q)",
+  "normalization": "sqrt(n)/tanh(epsilon/2)^2",
+  "partition_canonicalization": "Relabel each row's highest-probability bin by first state occurrence.",
+  "correct_binary_source_partition": {
+    "sign_positive": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "sign_negative": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "retained_other_cases": [
+    "constant",
+    "binary_other",
+    "multibin"
+  ],
+  "elapsed_seconds": 17.590878381999573,
+  "hashes": {
+    "learning_protocol": "9b597e0cf84d7a744f3d282f2b9586058268be739b9dfd5f8dc9809db1b23749",
+    "learning_raw": "8c75812619d2c83735c32d2ebbfe0c2bbd0b796006b139703a43be35efa114e3",
+    "experiment_models": "759e2e885017257a978a3d4abfc7269cbae3fa8d63f8bcb7caa52f159c65974e",
+    "original_runner": "a173008c00b3edc944d1a7d3feb4c8595b73739e0292ccff5da1996b93c2f9cc",
+    "decomposition_script": "f65794acdea1208f9c6580519849ff69ece89bc7ed699956dc08eb2ff2aaea6c",
+    "decomposition_raw": "69b722a45a4926509ff8b48148442ac5dbfd8eef4c38cfcba7b47281597489c6",
+    "decomposition_summary": "442d714c5615a679766f7457a108c407c3c526d76f89904ec1972198f6f1feaf"
+  }
+}

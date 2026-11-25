@@ -1,0 +1,26 @@
+{
+  "repeats": 9,
+  "n": 8192,
+  "alpha": 1,
+  "epsilon": 1.3862943611198906,
+  "methods": [
+    "attaining",
+    "direct_histogram"
+  ],
+  "alphabet_sizes": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "timing": "fit call only, excluding data generation, one discarded warm-up",
+  "memory": "peak Python/NumPy traced allocations in a separate fitting call; not process RSS",
+  "scheduling": "Run serially after the learning Monte Carlo and population computation finish.",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "system": "Linux",
+  "machine": "x86_64",
+  "logical_cpus": 9
+}

@@ -1,0 +1,11 @@
+{
+  "expected_rows": 76800,
+  "observed_rows": 76800,
+  "unique_fits": 76800,
+  "groups": 300,
+  "replicates_per_group": 256,
+  "minimum_excess": 0.0,
+  "maximum_risk": 0.5139428167797704,
+  "intervals": "Pointwise 95% Student-t Monte Carlo intervals, no multiplicity correction.",
+  "paired_sign": "Positive difference means the comparator has higher risk than attaining."
+}

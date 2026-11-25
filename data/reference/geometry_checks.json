@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "experiment": "Step 07 population representation studies",
+  "deterministic": true,
+  "random_seed": null,
+  "numpy_version": "2.3.5",
+  "source_provenance": {
+    "three_point": "Step 02, Section 4 (two exact examples and reoptimization)",
+    "modulus": "Step 03, Theorem 4.1, adapting supplied notes Theorem 8.5",
+    "four_state_coefficient": "Step 03, Appendix A, exact four-state coarsening example",
+    "float_dp": "Step 05 ordered_private_calibration.py; inherited ordered calibration recurrence"
+  },
+  "float_dp_sha256": "ac57ca2f5a596260e8e4f559269776ce3c630468f1b5fbd4e0b5f1617e381302",
+  "script_sha256": "0a061f8270f065be5b8b5f2af0e14bd8fe86f7af7c101a8b04e6388975252b27",
+  "exact_reference_method": "Fraction arithmetic over every canonical set partition (Bell numbers 1,2,5,15); explicit RR matrices and Bayes decoders",
+  "oracle_scope": "Global query-private oracle justified by Step 02 scalar structural theorem; enumeration itself covers all RR partitions",
+  "floating_method": "Inherited float64 ordered DP; centered explained variance used for evaluation",
+  "file_row_counts": {
+    "geometry_three_point.csv": 5,
+    "geometry_exact_four_state.csv": 28,
+    "geometry_modulus_grid.csv": 897
+  },
+  "checks": {
+    "total_laws": 930,
+    "all_dp_exhaustive_checks_pass": true,
+    "max_dp_exhaustive_phi_absolute_error": 2.7755575615628914e-17,
+    "dp_exhaustive_absolute_tolerance": 2e-13,
+    "max_rr_row_sum_error": 2.220446049250313e-16,
+    "all_exact_three_point_values_pass": true,
+    "all_exact_four_state_formulas_pass": true,
+    "all_exact_modulus_coarse_oracle_formulas_pass": true,
+    "all_exact_source_lower_bound_checks_pass": true,
+    "all_actual_mse_budget_checks_pass": true,
+    "exact_positive_but_float64_unresolved_rows": 9,
+    "smallest_t": 9.313225746154785e-10,
+    "coefficient_at_smallest_t": 0.1080246912602933,
+    "coefficient_limit_exact": "35/324",
+    "coefficient_relative_error_at_smallest_t": 9.047133573332852e-10,
+    "minimum_deficiency_over_gamma_budget": 0.02653452685421995,
+    "maximum_deficiency_over_gamma_budget": 0.4374965605155831
+  },
+  "interpretation_limits": [
+    "All results are population calculations, not sample minimax evidence or experiments on learned releases.",
+    "Exact references apply to the recorded rational laws and rational r; DP inputs use float64 approximations.",
+    "Do not replace unresolved float64 gaps by an assertion of exact zero; use the exact reference/status columns.",
+    "Modulus rows distinguish budget_v from actual mse. The source family saturates at actual mse=1/64.",
+    "Gamma's formal constant branch begins at budget_v>=1. Any genuine conditional-mean MSE is at most 1/4, so this is a budget plateau, not an empirically attainable MSE regime.",
+    "The feasible H comparator in the modulus proof need not be optimal; both unrestricted population oracles are optimized here.",
+    "The curves are checks and illustrations of established formulas; numerical agreement is not a proof of a minimax theorem or historical novelty."
+  ],
+  "columns": {
+    "*_exact": "Exact rational scalar, or JSON array of exact rational strings.",
+    "*_reference": "Float64 rendering of an independently enumerated exact rational oracle quantity, intended for plotting.",
+    "*_float64": "Raw inherited DP result; no clipping of negative/zero numerical deficiency.",
+    "deficiency_float64_resolved": "Conservative absolute-resolution diagnostic; the rational status remains authoritative for these laws.",
+    "k_*_reference": "Fewest outputs among tied exact RR optima. Multiple optimizers are retained in optimal_partitions_*_exact."
+  }
+}

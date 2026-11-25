@@ -1,0 +1,143 @@
+{
+  "main_configuration_ids": [
+    "004",
+    "028"
+  ],
+  "balanced_oracle": 0.22926399999999997,
+  "low_mean_oracle": 0.11251242186955057,
+  "low_target_mean": 0.13063509494163975,
+  "paired_results": [
+    {
+      "config_id": "004",
+      "study": "sample_size",
+      "method": "direct_histogram",
+      "comparison": "method minus attaining",
+      "mean": "-0.0007785832629002237",
+      "se": "6.553680448517187e-05",
+      "ci_low": "-0.0009076455846870573",
+      "ci_high": "-0.0006495209411133901",
+      "replicates": "256"
+    },
+    {
+      "config_id": "004",
+      "study": "sample_size",
+      "method": "no_mean_calibration",
+      "comparison": "method minus attaining",
+      "mean": "-0.00024108599806844835",
+      "se": "4.874820934158695e-05",
+      "ci_low": "-0.00033708636198609",
+      "ci_high": "-0.00014508563415080675",
+      "replicates": "256"
+    },
+    {
+      "config_id": "004",
+      "study": "sample_size",
+      "method": "private_mean",
+      "comparison": "method minus attaining",
+      "mean": "0.01950263881682096",
+      "se": "6.538748423660523e-05",
+      "ci_low": "0.019373870552977922",
+      "ci_high": "0.019631407080664",
+      "replicates": "256"
+    },
+    {
+      "config_id": "026",
+      "study": "mean_calibration",
+      "method": "direct_histogram",
+      "comparison": "method minus attaining",
+      "mean": "0.05744760361965022",
+      "se": "0.003706530774015543",
+      "ci_low": "0.05014829338890757",
+      "ci_high": "0.06474691385039287",
+      "replicates": "256"
+    },
+    {
+      "config_id": "026",
+      "study": "mean_calibration",
+      "method": "no_mean_calibration",
+      "comparison": "method minus attaining",
+      "mean": "0.08982945490788381",
+      "se": "0.004859192396006656",
+      "ci_low": "0.08026019596149377",
+      "ci_high": "0.09939871385427386",
+      "replicates": "256"
+    },
+    {
+      "config_id": "026",
+      "study": "mean_calibration",
+      "method": "private_mean",
+      "comparison": "method minus attaining",
+      "mean": "-0.01653281225364634",
+      "se": "0.0028795325373885327",
+      "ci_low": "-0.02220350611575221",
+      "ci_high": "-0.010862118391540472",
+      "replicates": "256"
+    },
+    {
+      "config_id": "028",
+      "study": "mean_calibration",
+      "method": "direct_histogram",
+      "comparison": "method minus attaining",
+      "mean": "0.0013066877781609761",
+      "se": "9.95834169825425e-05",
+      "ci_low": "0.0011105771025154876",
+      "ci_high": "0.0015027984538064647",
+      "replicates": "256"
+    },
+    {
+      "config_id": "028",
+      "study": "mean_calibration",
+      "method": "no_mean_calibration",
+      "comparison": "method minus attaining",
+      "mean": "0.0041507307457098516",
+      "se": "0.00028067384228306074",
+      "ci_low": "0.003597996781421443",
+      "ci_high": "0.00470346470999826",
+      "replicates": "256"
+    },
+    {
+      "config_id": "028",
+      "study": "mean_calibration",
+      "method": "private_mean",
+      "comparison": "method minus attaining",
+      "mean": "0.0002379896088070397",
+      "se": "3.275735883608111e-05",
+      "ci_low": "0.00017348019581077997",
+      "ci_high": "0.0003024990218032994",
+      "replicates": "256"
+    },
+    {
+      "config_id": "029",
+      "study": "mean_calibration",
+      "method": "direct_histogram",
+      "comparison": "method minus attaining",
+      "mean": "-0.00011359944115252454",
+      "se": "1.0733694262079956e-05",
+      "ci_low": "-0.00013473741871637554",
+      "ci_high": "-9.246146358867352e-05",
+      "replicates": "256"
+    },
+    {
+      "config_id": "029",
+      "study": "mean_calibration",
+      "method": "no_mean_calibration",
+      "comparison": "method minus attaining",
+      "mean": "0.00014311570321434355",
+      "se": "2.016267724194398e-05",
+      "ci_low": "0.00010340912980531175",
+      "ci_high": "0.00018282227662337538",
+      "replicates": "256"
+    },
+    {
+      "config_id": "029",
+      "study": "mean_calibration",
+      "method": "private_mean",
+      "comparison": "method minus attaining",
+      "mean": "0.0007340675694521952",
+      "se": "8.99037956177388e-06",
+      "ci_low": "0.0007163627199542315",
+      "ci_high": "0.0007517724189501588",
+      "replicates": "256"
+    }
+  ]
+}

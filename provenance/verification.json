@@ -1,0 +1,45 @@
+{
+  "software_version": "0.1.0",
+  "verification_date": "2026-11-25",
+  "scope": "Local verification of the portable package against frozen synthetic reference artifacts.",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8",
+    "platform": "Linux x86_64",
+    "installation": "Separate temporary checkout and virtual environment, recorded numerical libraries available through system site packages, PYTHONPATH unset."
+  },
+  "result": "passed",
+  "unit_tests_passed": 7,
+  "frozen_reference_files_verified": 20,
+  "reference_fit_records": 76800,
+  "method_summaries_recomputed": 300,
+  "paired_comparisons_recomputed": 250,
+  "decomposition_summaries_recomputed": 30,
+  "selected_seeded_fit_replays": 48,
+  "maximum_selected_replay_risk_error": 0.0,
+  "capped_uncapped_optimizer_comparisons": 432,
+  "exhaustive_small_partition_comparisons": 288,
+  "same_seed_capped_uncapped_learner_comparisons": 108,
+  "reconstruction": {
+    "recomputed_csv_files_equal_to_reference_bytes": 8,
+    "copied_csv_inputs_equal_to_reference_bytes": 4,
+    "regenerated_png_files_equal_to_reference_bytes": 6,
+    "regenerated_latex_tables_equal_to_reference_bytes": 2,
+    "pdf_files_generated": 6,
+    "pdf_binary_equality_required": false
+  },
+  "reduced_simulation_pipeline": {
+    "replicates_per_configuration": 2,
+    "configurations": 50,
+    "new_fits": 600,
+    "method_summaries": 300,
+    "paired_comparisons": 250,
+    "purpose": "Exercise simulation-to-analysis workflow; does not replace the 256-replicate reference study."
+  },
+  "full_learning_simulation_rerun": false,
+  "new_runtime_benchmark_run": false,
+  "reference_inputs_modified": false,
+  "interpretation": "These checks establish the recorded implementation comparisons and reconstruction results. They are not universal mathematical proofs or machine-level privacy certification."
+}
