@@ -123,7 +123,7 @@ The [experiment protocol](docs/experiments.md) defines the laws, configuration g
 
 ## Citation and maintenance
 
-The source code, reference artifacts, and reproduction instructions are published at [MohitKumarRostock/optimal-private-representations](https://github.com/MohitKumarRostock/optimal-private-representations). The initial software version is **0.1.0**.
+The source code, reference artifacts, and reproduction instructions are published at [MohitKumarRostock/optimal-private-representations](https://github.com/MohitKumarRostock/optimal-private-representations). The initial software version is **0.1.0**. Its [immutable reference snapshot](https://github.com/MohitKumarRostock/optimal-private-representations/tree/307c586f4be26fa7c53602b7742975b7f74279d8) identifies the exact implementation and numerical artifacts.
 
 See [CITING.md](CITING.md) for a software citation and instructions for identifying the exact revision used in an experiment. A moving branch name alone is insufficient to identify an immutable scientific result.
 
