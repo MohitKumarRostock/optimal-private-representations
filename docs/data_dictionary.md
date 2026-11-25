@@ -133,7 +133,7 @@ Let $`V`$ denote the population oracle, $`g`$ the fitted decoder, and $`g_P`$ th
 | `canonical_assignment` | String of input-to-bin labels, relabeled by first occurrence; e.g. `0011`. Preserve leading zeros |
 | `partition_category` | One of the five categories below |
 | `binary_correct`, `binary_wrong`, `binary_other`, `constant`, `multibin` | Exclusive `0/1` category indicators summing to one |
-| `source_wrong_gap` | Population risk of the opposite source partition minus $`V`$; equals $`|\theta|/60`$ in exact arithmetic |
+| `source_wrong_gap` | Population risk of the opposite source partition minus $`V`$; equals $`\lvert\theta\rvert/60`$ in exact arithmetic |
 | `normalized_source_wrong_gap` | Previous field multiplied by $`\sqrt n/a`$ |
 | `fitted_decoder`, `population_decoder` | JSON arrays in the original channel-column order |
 
@@ -183,7 +183,7 @@ All three `geometry_*.csv` files share the following columns. The suffix `h` ref
 | `statistic_probabilities_exact`, `statistic_means_exact` | Exact retained-law probabilities and conditional means, in retained-label order |
 | `target_second_moment`, `target_second_moment_exact` | Float and exact unconditional $`\mathbb E Y^2`$ |
 | `mse`, `mse_exact` | Actual $`\mathbb E(M-\mathbb E[M\mid T])^2`$ |
-| `l1`, `l1_exact` | Actual $`\mathbb E|M-\mathbb E[M\mid T]|`$ |
+| `l1`, `l1_exact` | Actual $`\mathbb E\lvert M-\mathbb E[M\mid T]\rvert`$ |
 | `linf` | Actual maximum absolute conditional-mean reconstruction error over positive-mass states |
 | `risk_h_reference`, `risk_t_reference` | Float renderings of the independently enumerated exact optimal risks |
 | `risk_h_exact`, `risk_t_exact` | Exact optimal risks |
@@ -227,7 +227,7 @@ The fixed-codebook penalties are not in general the reoptimized deficiency.
 
 | Columns | Meaning |
 |---|---|
-| `t`, `t_exact`, `dyadic_power` | Parameter $`t=2^{-\text{dyadic_power}}`$, with powers 3–30 |
+| `t`, `t_exact`, `dyadic_power` | Parameter $`t=2^{-\text{dyadic\_power}}`$, with powers 3–30 |
 | `deficiency_over_mse_two_thirds` | Exact gap divided by actual MSE to the $`2/3`$ power, rendered as float |
 | `deficiency_over_t_squared_exact` | The same ratio as an exact rational, since MSE=$`t^3`$ |
 | `asymptotic_coefficient`, `asymptotic_coefficient_exact` | $`35/324`$ |
