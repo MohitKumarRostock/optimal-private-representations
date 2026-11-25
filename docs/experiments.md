@@ -14,26 +14,26 @@ The [data dictionary](data_dictionary.md) gives every file's schema and units. T
 
 ## Main learning protocol
 
-For each configuration, draw states $H_\ell$ independently with probabilities $p_i$, then targets $Y_\ell\mid H_\ell=i\sim\operatorname{Bernoulli}(m_i)$. State indices run from zero to $d-1$. The recorded grid is fully specified in [learning_protocol.json](../data/reference/learning_protocol.json); it was saved before the main run.
+For each configuration, draw states $`H_\ell`$ independently with probabilities $`p_i`$, then targets $`Y_\ell\mid H_\ell=i\sim\mathrm{Bernoulli}(m_i)`$. State indices run from zero to $`d-1`$. The recorded grid is fully specified in [learning_protocol.json](../data/reference/learning_protocol.json); it was saved before the main run.
 
 ### Balanced graded family
 
-Input probabilities are uniform. Let $b_d(i)$ reverse the bits of the zero-padded binary expansion of $i$, using $\log_2 d$ bits. The conditional means are
+Input probabilities are uniform. Let $`b_d(i)`$ reverse the bits of the zero-padded binary expansion of $`i`$, using $`\log_2 d`$ bits. The conditional means are
 
-$$
+```math
 m_i=0.05+\frac{0.90\,b_d(i)}{d-1}.
-$$
+```
 
 The tested alphabet sizes are powers of two. The permutation prevents numerical input order from coinciding with conditional-mean order.
 
-The default is $(n,d,\alpha,\varepsilon)=(2048,16,1,\log4)$. Each row below changes one parameter and holds the others at their defaults.
+The default is $`(n,d,\alpha,\varepsilon)=(2048,16,1,\log4)`$. Each row below changes one parameter and holds the others at their defaults.
 
 | Configuration IDs | Study field | Parameter values | Number of configurations |
 |---|---|---|---:|
-| `000`–`007` | `sample_size` | $n=128,256,512,1024,2048,4096,8192,16384$ | 8 |
-| `008`–`013` | `training_budget` | $\alpha=0,0.05,0.1,0.25,0.5,1$ | 6 |
-| `014`–`020` | `query_budget` | $\varepsilon=0,0.1,0.25,0.5,\log2,1,\log4$ | 7 |
-| `021`–`025` | `alphabet_size` | $d=4,8,16,32,64$ | 5 |
+| `000`–`007` | `sample_size` | $`n=128,256,512,1024,2048,4096,8192,16384`$ | 8 |
+| `008`–`013` | `training_budget` | $`\alpha=0,0.05,0.1,0.25,0.5,1`$ | 6 |
+| `014`–`020` | `query_budget` | $`\varepsilon=0,0.1,0.25,0.5,\log2,1,\log4`$ | 7 |
+| `021`–`025` | `alphabet_size` | $`d=4,8,16,32,64`$ | 5 |
 
 Repeated defaults in different sweeps have distinct configuration IDs and independent samples. Their estimates need not coincide.
 
@@ -41,55 +41,55 @@ Repeated defaults in different sweeps have distinct configuration IDs and indepe
 
 Configurations `026`–`029` use 32 states with
 
-$$
+```math
 p_i=\frac{(i+1)^{-1.3}}{\sum_{j=0}^{31}(j+1)^{-1.3}},
 \qquad
 m_i=0.02+\frac{0.36\,b_{32}(i)}{31}.
-$$
+```
 
-The sample sizes are $128,512,2048,8192$, with $\alpha=0.25$ and $\varepsilon=\log2$. This law combines uneven cell frequencies and a target mean near $0.1306350949$. Its known-law query-private oracle risk is approximately $0.1125124219$. The family tests the practical effect of separate mean calibration, including settings in which a private constant predictor is competitive.
+The sample sizes are $`128,512,2048,8192`$, with $`\alpha=0.25`$ and $`\varepsilon=\log2`$. This law combines uneven cell frequencies and a target mean near $`0.1306350949`$. Its known-law query-private oracle risk is approximately $`0.1125124219`$. The family tests the practical effect of separate mean calibration, including settings in which a private constant predictor is competitive.
 
 ### Local alternatives near a partition tie
 
 Configurations `030`–`049` use
 
-$$
+```math
 p=(1/3,1/6,1/6,1/3),\qquad
 m_\theta=(1/4,1/2+\theta,1/2+\theta,3/4),
 \qquad \theta=\frac{s c}{\sqrt n}.
-$$
+```
 
-Here $s\in\{-1,+1\}$, $c\in\{0.5,1\}$, $n\in\{256,1024,4096,16384,65536\}$, $\alpha=1$, and $\varepsilon=\log2$. IDs advance first over increasing $n$, then $c=0.5,1$, then $s=-1,+1$.
+Here $`s\in\{-1,+1\}`$, $`c\in\{0.5,1\}`$, $`n\in\{256,1024,4096,16384,65536\}`$, $`\alpha=1`$, and $`\varepsilon=\log2`$. IDs advance first over increasing $`n`$, then $`c=0.5,1`$, then $`s=-1,+1`$.
 
 The oracle risk has the closed form
 
-$$
+```math
 V=\frac14-\frac{\theta^2}{9}
 -\frac{(3+4|\theta|)^2}{2880}.
-$$
+```
 
-The optimal source partition is `0111` for positive $\theta$ and `0001` for negative $\theta$. Using the opposite source partition and its population decoder costs $|\theta|/60$ in risk. Other binary partitions are possible and are retained separately in the diagnostic.
+The optimal source partition is `0111` for positive $`\theta`$ and `0001` for negative $`\theta`$. Using the opposite source partition and its population decoder costs $`|\theta|/60`$ in risk. Other binary partitions are possible and are retained separately in the diagnostic.
 
-These laws change with $n$. A curve of normalized excess on this family does not establish a limiting exponent or a worst-case rate over all laws.
+These laws change with $`n`$. A curve of normalized excess on this family does not establish a limiting exponent or a worst-case rate over all laws.
 
 ## Six fitted methods
 
 All recorded learning and timing results use the **uncapped experiment implementation**, which searches all output counts up to the number of distinct sanitized score groups. The public estimator also offers a capped optimizer; its timings were not measured in the frozen study. See [methods.md](methods.md) for that distinction and the complete accounting.
 
-Write $\bar\alpha=\min(1,\alpha)$, $n_1=\lfloor n/2\rfloor$, and $N=n-n_1$.
+Write $`\bar\alpha=\min(1,\alpha)`$, $`n_1=\lfloor n/2\rfloor`$, and $`N=n-n_1`$.
 
 | Method identifier | Records and fitting procedure | Interpretation |
 |---|---|---|
-| `attaining` | Private pilot on the first $n_1$ records; histogram and separate mean calibration on the remaining $N$ | Reference pilot-and-calibration learner |
-| `direct_histogram` | All-$n$ normalized fractional histogram, independent Laplace scale $2/(n\bar\alpha)$, clipping and normalization; order and optimize using sanitized means | Avoids the sample split |
-| `private_mean` | All-$n$ mean plus Laplace scale $1/(n\bar\alpha)$, clipped to $[0,1]$; constant query channel | Ignores the input |
-| `no_mean_calibration` | Same pilot and split as `attaining`; calibration histogram uses scale $2/(N\bar\alpha)$ and no separate mean release | Changes both mean treatment and calibration-budget allocation |
+| `attaining` | Private pilot on the first $`n_1`$ records; histogram and separate mean calibration on the remaining $`N`$ | Reference pilot-and-calibration learner |
+| `direct_histogram` | All-$`n`$ normalized fractional histogram, independent Laplace scale $`2/(n\bar\alpha)`$, clipping and normalization; order and optimize using sanitized means | Avoids the sample split |
+| `private_mean` | All-$`n`$ mean plus Laplace scale $`1/(n\bar\alpha)`$, clipped to $`[0,1]`$; constant query channel | Ignores the input |
+| `no_mean_calibration` | Same pilot and split as `attaining`; calibration histogram uses scale $`2/(N\bar\alpha)`$ and no separate mean release | Changes both mean treatment and calibration-budget allocation |
 | `public_order` | Numerical input-index order; same calibration block and mean recipe as `attaining`; discard the pilot block | A restricted-order ablation, not an oracle order |
-| `nonprivate_fit` | All-$n$ empirical fractional histogram; order and optimize without training noise | Retains query privacy but has no training privacy |
+| `nonprivate_fit` | All-$`n`$ empirical fractional histogram; order and optimize without training noise | Retains query privacy but has no training privacy |
 
-For `attaining`, the pilot count-vector noise scale is $2/\bar\alpha$. The calibration histogram and mean have scales $4/(N\bar\alpha)$ and $2/(N\bar\alpha)$, respectively, splitting the calibration budget equally. The pilot and calibration blocks are disjoint. Every declared cell receives noise, including unseen states. Fixed fallback rules handle all-zero clipped histograms.
+For `attaining`, the pilot count-vector noise scale is $`2/\bar\alpha`$. The calibration histogram and mean have scales $`4/(N\bar\alpha)`$ and $`2/(N\bar\alpha)`$, respectively, splitting the calibration budget equally. The pilot and calibration blocks are disjoint. Every declared cell receives noise, including unseen states. Fixed fallback rules handle all-zero clipped histograms.
 
-At $\alpha=0$, the five training-private methods return the data-independent constant $1/2$. `nonprivate_fit` ignores the training budget and remains nonprivate. At $\varepsilon=0$, channels reveal no input information, but their constant decoder can still be estimated subject to the training budget.
+At $`\alpha=0`$, the five training-private methods return the data-independent constant $`1/2`$. `nonprivate_fit` ignores the training budget and remains nonprivate. At $`\varepsilon=0`$, channels reveal no input information, but their constant decoder can still be estimated subject to the training budget.
 
 The methods have individual ideal privacy guarantees. Releasing all six fitted models together is not claimed to have a single shared training budget. Fixed public simulation seeds are not suitable hidden randomness for a private deployment.
 
@@ -113,13 +113,13 @@ The seeded generator, law code, and algorithm version matter together. A differe
 
 ## Risk, oracles, and uncertainty
 
-A fitted channel $Q$ has a row for every declared state, and a decoder has values $g_z\in[0,1]$. Risk is evaluated by integrating the known finite law:
+A fitted channel $`Q`$ has a row for every declared state, and a decoder has values $`g_z\in[0,1]`$. Risk is evaluated by integrating the known finite law:
 
-$$
+```math
 R(Q,g)=\sum_i p_i\left[
 m_i(1-m_i)+\sum_z Q(z\mid i)(m_i-g_z)^2
 \right].
-$$
+```
 
 This evaluates the squared risk of the **randomized prediction** and includes both target and query noise. It is not the squared error of the deterministic expected prediction. No sampled test set or sampled query output adds evaluation noise. Except in the explicitly rational population calculations, “analytic evaluation” still uses float64 arithmetic.
 
@@ -127,25 +127,25 @@ The population oracle knows the true law and the true conditional-mean order. It
 
 Each configuration–method mean uses its 256 independent fitting replicates. Pointwise 95% Monte Carlo intervals are
 
-$$
+```math
 \bar x\ \pm\ t_{0.975,R-1}\frac{s_x}{\sqrt R},
 \qquad R=256.
-$$
+```
 
 These quantify uncertainty in expected risk over training samples and fitting randomness. They are neither prediction intervals nor performance guarantees for a single fit. There is no multiplicity correction.
 
 Paired comparisons use the within-replicate quantity
 `comparator risk - attaining risk`. Positive values favor the pilot-and-calibration method. Computing differences before the empirical variance preserves the shared-sample coupling. The stored summaries comprise 300 configuration–method rows and 250 configuration–comparator rows.
 
-For two near-tie signs, summaries weight signs equally. If $\bar x_-$ and $\bar x_+$ are the sign means and $v_s=s_s^2/R$, then
+For two near-tie signs, summaries weight signs equally. If $`\bar x_-`$ and $`\bar x_+`$ are the sign means and $`v_s=s_s^2/R`$, then
 
-$$
+```math
 \bar x=\frac{\bar x_-+\bar x_+}{2},\qquad
-\operatorname{SE}=\frac{\sqrt{v_-+v_+}}2,\qquad
+\mathrm{SE}=\frac{\sqrt{v_-+v_+}}2,\qquad
 \nu=\frac{(v_-+v_+)^2}{v_-^2/(R-1)+v_+^2/(R-1)}.
-$$
+```
 
-The interval uses the Student-$t$ critical value with $\nu$ degrees of freedom. This treats signs as fixed strata, rather than pooling their between-sign variation. Normalization is applied to each record before aggregation.
+The interval uses the Student-$`t`$ critical value with $`\nu`$ degrees of freedom. This treats signs as fixed strata, rather than pooling their between-sign variation. Normalization is applied to each record before aggregation.
 
 ## Post-run decomposition of existing near-tie fits
 
@@ -153,22 +153,22 @@ After inspecting the initial learning curves, a diagnostic was added for `attain
 
 For each fitted channel, the diagnostic replaces its decoder only for evaluation by
 
-$$
+```math
 g_{P,Q}(z)=\frac{\sum_i p_i m_i Q(z\mid i)}
 {\sum_i p_i Q(z\mid i)}.
-$$
+```
 
 It records the decomposition
 
-$$
+```math
 R(Q,g)-V=
 \underbrace{R(Q,g_{P,Q})-V}_{\text{channel excess}}
 +\underbrace{\sum_z P_Q(z)(g_z-g_{P,Q}(z))^2}_{\text{decoder error}}.
-$$
+```
 
-The population decoder is unavailable to the learner. This operation does not improve the fitted algorithm, add observations, or create independent replicates. The maximum recorded identity residual is $6.25\times10^{-17}$.
+The population decoder is unavailable to the learner. This operation does not improve the fitted algorithm, add observations, or create independent replicates. The maximum recorded identity residual is $`6.25\times10^{-17}`$.
 
-Raw and normalized components use $a=\tanh^2(\varepsilon/2)$ and normalization $\sqrt n/a$. Partition indicators distinguish the correct source partition, its opposite, other binary partitions, constant outputs, and more than two outputs. All replayed fits in the frozen study have two outputs; zero observed frequencies are not probability theorems. Approximate moment-based indicator intervals can extend outside $[0,1]$ and are not clipped.
+Raw and normalized components use $`a=\tanh^2(\varepsilon/2)`$ and normalization $`\sqrt n/a`$. Partition indicators distinguish the correct source partition, its opposite, other binary partitions, constant outputs, and more than two outputs. All replayed fits in the frozen study have two outputs; zero observed frequencies are not probability theorems. Approximate moment-based indicator intervals can extend outside $`[0,1]`$ and are not clipped.
 
 The diagnostic explains why a declining normalized total can be driven by decoder estimation even when the channel component changes more slowly. It is explicitly a **post-run diagnostic**, not a preregistered empirical rate test.
 
@@ -176,44 +176,44 @@ The diagnostic explains why a declining normalized total can be driven by decode
 
 These calculations use no random sampling. For every rational law on at most four states, an independent enumerator visits every canonical set partition, constructs its randomized-response channel, and computes its Bayes decoder with Python `Fraction` arithmetic. All RR partitions are included, including nonconsecutive ones. The scalar optimal-mechanism reduction justifies using this class for the unrestricted oracle; enumeration alone does not prove that reduction.
 
-For a retained statistic $T$, both the original and coarsened channels and decoders are optimized. The recorded deficiency is $V(T)-V(H)$. Explained variance is $\Phi=\operatorname{Var}(\mathbb E[Y\mid Z])$, so risk is $\operatorname{Var}(Y)-\Phi$.
+For a retained statistic $`T`$, both the original and coarsened channels and decoders are optimized. The recorded deficiency is $`V(T)-V(H)`$. Explained variance is $`\Phi=\mathrm{Var}(\mathbb E[Y\mid Z])`$, so risk is $`\mathrm{Var}(Y)-\Phi`$.
 
 | File | Cases | Construction |
 |---|---:|---|
-| `geometry_three_point.csv` | 5 | $H=Y$ uniform on $\{0,1/2,1\}$, $e^\varepsilon=2$; identity, left/right optimal-bin coarsenings, boundary-crossing coarsening, constant |
-| `geometry_exact_four_state.csv` | 28 | $t=2^{-j}$ for $j=3,\ldots,30$; probabilities $((1-t)/2,t/2,t/2,(1-t)/2)$, deterministic targets $(0,1/2-t,1/2+t,1)$; merge the middle states |
+| `geometry_three_point.csv` | 5 | $`H=Y`$ uniform on $`\{0,1/2,1\}`$, $`e^\varepsilon=2`$; identity, left/right optimal-bin coarsenings, boundary-crossing coarsening, constant |
+| `geometry_exact_four_state.csv` | 28 | $`t=2^{-j}`$ for $`j=3,\ldots,30`$; probabilities $`((1-t)/2,t/2,t/2,(1-t)/2)`$, deterministic targets $`(0,1/2-t,1/2+t,1)`$; merge the middle states |
 | `geometry_modulus_grid.csv` | 897 | Bernoulli four-state laws over seven rational privacy ratios and a reconstruction-budget grid; merge the middle states |
 
-The three-point coarsenings have group maps `[0,1,2]`, `[0,1,1]`, `[0,0,1]`, `[1,0,1]`, and `[0,0,0]`. The first three have zero deficiency; the last two have deficiency $1/80$. The full risk is $37/240$.
+The three-point coarsenings have group maps `[0,1,2]`, `[0,1,1]`, `[0,0,1]`, `[1,0,1]`, and `[0,0,0]`. The first three have zero deficiency; the last two have deficiency $`1/80`$. The full risk is $`37/240`$.
 
-The exact four-state family has actual reconstruction MSE $t^3$ and
+The exact four-state family has actual reconstruction MSE $`t^3`$ and
 
-$$
+```math
 \Delta(t)=
 \frac{t^2(35-34t+31t^2+4t^3-4t^4)}{36(9-t^2)}.
-$$
+```
 
-Consequently $\Delta/(t^3)^{2/3}$ tends to $35/324$.
+Consequently $`\Delta/(t^3)^{2/3}`$ tends to $`35/324`$.
 
 For the modulus grid, the exact primitive is
-$r=e^\varepsilon\in\{1,51/50,21/20,11/10,5/4,2,4\}$.
-Set $a=((r-1)/(r+1))^2$. The base budgets are the rationalized decimal values of 121 `np.geomspace(1e-16, 0.25, 121)` points, plus $0,1/64,1/4,1,4$. For positive $a$, also include $a^2/6400,a^2/64,a^2,\min(1/4,100a^2)$; duplicates are removed.
+$`r=e^\varepsilon\in\{1,51/50,21/20,11/10,5/4,2,4\}`$.
+Set $`a=((r-1)/(r+1))^2`$. The base budgets are the rationalized decimal values of 121 `np.geomspace(1e-16, 0.25, 121)` points, plus $`0,1/64,1/4,1,4`$. For positive $`a`$, also include $`a^2/6400,a^2/64,a^2,\min(1/4,100a^2)`$; duplicates are removed.
 
-Each law uses probabilities $((1-w)/2,w/2,w/2,(1-w)/2)$ and means $(1/4,1/2-h,1/2+h,3/4)$. For positive budget $v\le a^2/64$, choose $w$ just below $(v/a^2)^{1/3}$ as a float-representable rational and set $h=aw$. For $a^2/64<v\le1/64$, use $w=1/4$ and rationalize $h=\sqrt{v/w}$ downward. Above $1/64$, use $w=h=1/4$; at zero budget, use $w=1/4,h=0$. Exact checks enforce $wh^2\le v$.
+Each law uses probabilities $`((1-w)/2,w/2,w/2,(1-w)/2)`$ and means $`(1/4,1/2-h,1/2+h,3/4)`$. For positive budget $`v\le a^2/64`$, choose $`w`$ just below $`(v/a^2)^{1/3}`$ as a float-representable rational and set $`h=aw`$. For $`a^2/64<v\le1/64`$, use $`w=1/4`$ and rationalize $`h=\sqrt{v/w}`$ downward. Above $`1/64`$, use $`w=h=1/4`$; at zero budget, use $`w=1/4,h=0`$. Exact checks enforce $`wh^2\le v`$.
 
-The comparison scale is $\Gamma_a(v)=\min\{a,a\sqrt v,(av)^{2/3}\}$. The field `budget_v` is an allowed reconstruction error; `mse` is the actual error. The family saturates at actual MSE $1/64$. Budgets above this value, including the formal plateau at $v\ge1$, are not larger actual reconstruction errors.
+The comparison scale is $`\Gamma_a(v)=\min\{a,a\sqrt v,(av)^{2/3}\}`$. The field `budget_v` is an allowed reconstruction error; `mse` is the actual error. The family saturates at actual MSE $`1/64`$. Budgets above this value, including the formal plateau at $`v\ge1`$, are not larger actual reconstruction errors.
 
-There are **930 law–statistic–budget cases and 1,860 full/coarsened exact-versus-float64 oracle comparisons**. The maximum explained-variance discrepancy is $2.78\times10^{-17}$. Nine exact positive deficiencies in the four-state family ($j=22,\ldots,30$) fall below the conservative float64 subtraction-resolution diagnostic. This is not floating-point underflow or evidence of exact zero. The rational values and statuses remain authoritative; plots use their float renderings. The diagnostic threshold is $64\,\epsilon_{\rm machine}\max(1,\mathbb E Y^2)$.
+There are **930 law–statistic–budget cases and 1,860 full/coarsened exact-versus-float64 oracle comparisons**. The maximum explained-variance discrepancy is $`2.78\times10^{-17}`$. Nine exact positive deficiencies in the four-state family ($`j=22,\ldots,30`$) fall below the conservative float64 subtraction-resolution diagnostic. This is not floating-point underflow or evidence of exact zero. The rational values and statuses remain authoritative; plots use their float renderings. The diagnostic threshold is $`64\,\epsilon_{\rm machine}\max(1,\mathbb E Y^2)`$.
 
 ## Separate output-count diagnostic
 
-A post-design interpretation check uses Bernoulli means $(0,1/2,1/2,1)$ with probabilities $(3/10,1/5,1/5,3/10)$. It enumerates all 15 four-state partitions and all 8 partitions with at most two cells at $r=1,5/4,3/2,2,3,4$.
+A post-design interpretation check uses Bernoulli means $`(0,1/2,1/2,1)`$ with probabilities $`(3/10,1/5,1/5,3/10)`$. It enumerates all 15 four-state partitions and all 8 partitions with at most two cells at $`r=1,5/4,3/2,2,3,4`$.
 
-The minimum optimal RR output counts are $1,2,2,2,2,3$. At $r=4$, the unrestricted optimum has risk $163/760$, while the best RR partition with at most two outputs has risk $127/589$, a difference of $27/23560$. This comparison prevents the main examples' two-output optima from suggesting that binary RR always suffices. The restricted comparator is specifically the at-most-two-output **RR-partition family**; this diagnostic does not separately solve every possible binary-output private mechanism.
+The minimum optimal RR output counts are $`1,2,2,2,2,3`$. At $`r=4`$, the unrestricted optimum has risk $`163/760`$, while the best RR partition with at most two outputs has risk $`127/589`$, a difference of $`27/23560`$. This comparison prevents the main examples' two-output optima from suggesting that binary RR always suffices. The restricted comparator is specifically the at-most-two-output **RR-partition family**; this diagnostic does not separately solve every possible binary-output private mechanism.
 
 ## Runtime and allocation measurements
 
-The recorded benchmark is separate and serial, with $n=8192$, $\alpha=1$, $\varepsilon=\log4$, the balanced graded law, $d\in\{4,8,16,32,64,128\}$, and methods `attaining` and `direct_histogram`.
+The recorded benchmark is separate and serial, with $`n=8192`$, $`\alpha=1`$, $`\varepsilon=\log4`$, the balanced graded law, $`d\in\{4,8,16,32,64,128\}`$, and methods `attaining` and `direct_histogram`.
 
 Data generation is excluded. Each method–alphabet combination uses one discarded warm-up, nine timed fitting calls, and a separate allocation-traced call. The warm-up is not in the CSV. The trace measures peak Python/NumPy allocations during fitting, not resident process memory.
 

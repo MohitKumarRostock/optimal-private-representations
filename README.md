@@ -2,7 +2,7 @@
 
 Reference algorithms and reproducible experiments for learning randomized representations for bounded regression under differential privacy.
 
-The repository studies a finite public input alphabet and a target in $[0,1]$ under squared loss. A learning algorithm fits a randomized representation channel and a decoder from labeled records. Two privacy constraints protect different objects: central differential privacy protects complete training records, and local differential privacy protects each fresh input released through the fitted channel.
+The repository studies a finite public input alphabet and a target in $`[0,1]`$ under squared loss. A learning algorithm fits a randomized representation channel and a decoder from labeled records. Two privacy constraints protect different objects: central differential privacy protects complete training records, and local differential privacy protects each fresh input released through the fitted channel.
 
 The package contains the learning algorithms, six comparison methods, exact population-oracle calculations, synthetic experiment protocols, recorded measurements, and commands for reproducing the analyses. The documentation defines the statistical problem and experimental procedures without requiring a separate manuscript.
 
@@ -42,24 +42,24 @@ The complete study fits 76,800 models on 12,800 independently generated training
 
 ## Scientific scope
 
-Let $H\in\{0,\ldots,d-1\}$ denote the output of a public encoder fixed independently of the fitting sample, and let $Y\in[0,1]$. The learner returns a channel $Q(z\mid h)$ and a decoder $g(z)$. Its population risk is
+Let $`H\in\{0,\ldots,d-1\}`$ denote the output of a public encoder fixed independently of the fitting sample, and let $`Y\in[0,1]`$. The learner returns a channel $`Q(z\mid h)`$ and a decoder $`g(z)`$. Its population risk is
 
-$$
+```math
 R_P(Q,g)=\mathbb E_{(H,Y)\sim P}\!\left[\sum_z Q(z\mid H)(Y-g(z))^2\right].
-$$
+```
 
-The fitted model has pure central privacy budget $\alpha$ under replacement of one complete labeled record. For every realized fitted model, the query channel satisfies
+The fitted model has pure central privacy budget $`\alpha`$ under replacement of one complete labeled record. For every realized fitted model, the query channel satisfies
 
-$$
+```math
 Q(z\mid h)\leq e^\varepsilon Q(z\mid h')
 \quad\text{for all }h,h',z.
-$$
+```
 
-The local constraint includes declared input states absent from the fitting sample. The released private representation is a randomized output $Z$. Deterministic bin assignments and conditional prediction expectations are evaluation quantities, and do not constitute private releases of a confidential query input.
+The local constraint includes declared input states absent from the fitting sample. The released private representation is a randomized output $`Z`$. Deterministic bin assignments and conditional prediction expectations are evaluation quantities, and do not constitute private releases of a confidential query input.
 
 The main learner uses a fixed sample split, a private pilot ordering, a private calibration histogram and target mean, and exact dynamic programming over ordered partitions. The public API uses a conservative bound on the number of outputs. The experiment implementation preserves the unrestricted output-count search used to produce the recorded measurements. Both implementations and their relationship are described in the [methods guide](docs/methods.md).
 
-The implemented learner accepts $0\leq\varepsilon\leq\log 4$ and finite $\alpha\geq0$. The matching finite-alphabet minimax statement uses $d\geq4$. The numerical code is a research implementation in floating-point arithmetic; it does not certify machine-level differential privacy. Fixed public seeds are used for reproducible synthetic experiments.
+The implemented learner accepts $`0\leq\varepsilon\leq\log 4`$ and finite $`\alpha\geq0`$. The matching finite-alphabet minimax statement uses $`d\geq4`$. The numerical code is a research implementation in floating-point arithmetic; it does not certify machine-level differential privacy. Fixed public seeds are used for reproducible synthetic experiments.
 
 ## Python example
 

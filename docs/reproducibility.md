@@ -49,7 +49,7 @@ opr simulate --replicates 256 --output-dir outputs/full-simulation
 opr summarize --data-dir outputs/full-simulation/data --output-dir outputs/full-analysis
 ```
 
-The complete protocol generates $50\times256=12{,}800$ independent training samples and evaluates six fitted methods on each sample, for 76,800 fits. A smaller replicate count is useful for checking the workflow, but its outputs are a new reduced simulation and do not reproduce the uncertainty of the 256-replicate reference study.
+The complete protocol generates $`50\times256=12{,}800`$ independent training samples and evaluates six fitted methods on each sample, for 76,800 fits. A smaller replicate count is useful for checking the workflow, but its outputs are a new reduced simulation and do not reproduce the uncertainty of the 256-replicate reference study.
 
 `summarize` reads the new run's protocol and raw fit measurements, writes recomputed method summaries and paired comparisons, and generates the three learning/ablation/absolute-risk figure families in a separate output directory. It does not require a frozen-reference hash match and does not modify the input run. In contrast, `reproduce` verifies and rebuilds the distributed reference study. Population calculations, decomposition, and runtime measurements remain separate workflows.
 
@@ -71,7 +71,7 @@ The decomposition replays 15,360 existing fits from three methods on the 20 loca
 
 The `benchmark` command performs serial fitting measurements with data generation excluded, one discarded warm-up, and nine timed repetitions. Run it after the scientific calculations and avoid concurrent computational work. Consult `opr benchmark --help` for the output option.
 
-The reference benchmark fixes $n=8192$, $\alpha=1$, and $\varepsilon=\log4$, and varies the input alphabet size. The allocation trace is a separate measurement of allocations during fitting; it is not total resident process memory. Runtime and allocations depend on the implementation, platform, numerical libraries, and measurement procedure.
+The reference benchmark fixes $`n=8192`$, $`\alpha=1`$, and $`\varepsilon=\log4`$, and varies the input alphabet size. The allocation trace is a separate measurement of allocations during fitting; it is not total resident process memory. Runtime and allocations depend on the implementation, platform, numerical libraries, and measurement procedure.
 
 Timing fields are internal experimental diagnostics. They are not included in the claimed private model release.
 
